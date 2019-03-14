@@ -1,0 +1,48 @@
+https://editor.p5js.org/rockoalex11@gmail.com/present/-kqEhDvMW
+
+class Pelota{
+constructor(){
+ this.b=10;
+  this.x=random (6,395);
+  this.y=random (6,395);
+  this.velx=random(1,7);
+  this.vely=random(1,7);
+  
+  
+}
+  mostrar(){
+  ellipse(this.x, this.y, this.b,this.b);
+  }
+  
+  mover(){
+this.x=this.x+this.velx;
+   this.y=this.y+this.vely; 
+}
+    
+  salir(){
+  if(this.x>395||this.x<5){
+    this.velx=this.velx*-1;
+  }
+    if(this.y>395||this.y<5){
+    this.vely=this.vely*-1;
+  } 
+  }
+
+}
+
+var p=[];
+function setup() {
+  createCanvas(400, 400);
+  for(var i=0; i<100; i++){
+    p[i]=new Pelota();
+  }
+}
+
+function draw() {
+  background(220);
+  for(var i=0; i<p.length; i++){
+  p[i].mostrar();
+  p[i].mover();
+  p[i].salir();
+  }
+}
